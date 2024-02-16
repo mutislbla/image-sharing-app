@@ -1,0 +1,26 @@
+version: "3"
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: "postgres://user:password@dbpgsql:5432/imagesharingapp_docker"
+      JWT_SECRET: "c9b3aa2ba44b668c978b216a7d126397b218bc835386cdbae24db2165ef76f01"
+    depends_on:
+      - dbpgsql
+  dbpgsql:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: imagesharingapp_docker
+    ports:
+      - "5432:5432"
