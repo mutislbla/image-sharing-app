@@ -11,6 +11,9 @@ To deploy this project run
   cd backend
 ```
 ```bash
+  npm install
+```
+```bash
   docker build -t backend .
 ```
 ```bash
