@@ -19,6 +19,17 @@ To deploy this project run
 ```bash
   docker compose up
 ```
+then deploy this in docker
+
+```bash
+  npx prisma generate
+```
+```bash
+  npx prisma db push
+```
+```bash
+  npx prisma db seed
+```
 
 ## Frontend
 
